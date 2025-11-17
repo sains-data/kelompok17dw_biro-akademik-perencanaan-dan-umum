@@ -27,6 +27,6 @@ Description of the business unit
 - [Design Documents](docs/02-design/)
 
 ## Timeline
-- Misi 1: [Tanggal]
+- Misi 1: 17 November 2025
 - Misi 2: [Tanggal]
 - Misi 3: [Tanggal]
