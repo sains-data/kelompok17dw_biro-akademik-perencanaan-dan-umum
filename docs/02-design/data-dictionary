@@ -1,0 +1,10 @@
+Berikut adalah data dictionary yang digunakan untuk menjelaskan beberapa istilah yang digunakan dalam proyek ini:
+- Pagu: Jumlah anggaran yang dialokasikan pada awal atau setelah revisi.
+- Realisasi: Pengeluaran atau pendapatan aktual dalam periode tertentu.
+- Persentase Realisasi: realisasi / pagu, membantu evaluasi efektivitas serapan anggaran.
+- Target Indikator: Nilai target kinerja tahunan/triwulan.
+- Capaian Kinerja: Nilai realisasi pencapaian indikator.
+- Unit Kerja: Entitas organisasi yang mengusulkan/bertanggung jawab atas anggaran dan kinerja.
+- Program & Kegiatan: Struktur perencanaan tahunan dan renstra.
+- Akun Anggaran: Kategori rincian belanja/penerimaan berdasarkan regulasi pemerintah.
+- Waktu: Dimensi kalender dan periode pelaporan (TW, semester, tahun).
