@@ -18,8 +18,16 @@ Description of the business unit
 - ETL: T-SQL Stored Procedures
 
 ## Key Features
-- Fact tables: ...
-- Dimension tables: ...
+- Fact tables:
+  - `Fact_Anggaran`
+  - `Fact_Kinerja`
+- Dimension tables:
+  -`Dim_Unit`
+  - `Dim_Program`
+  - `Dim_Kegiatan`
+  - `Dim_SumberDana`
+  - `Dim_Indikator`
+  - `Dim_Waktu`
 - KPIs: ...
 
 ## Documentation
@@ -28,5 +36,5 @@ Description of the business unit
 
 ## Timeline
 - Misi 1: 17 November 2025
-- Misi 2: [Tanggal]
+- Misi 2: 24 November 2025
 - Misi 3: [Tanggal]
