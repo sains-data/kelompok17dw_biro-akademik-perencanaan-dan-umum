@@ -15,7 +15,7 @@ Description of the business unit
 ## Architecture
 - Approach: Kimball/Inmon/Data Vault
 - Platform: SQL Server on Azure VM
-- ETL: SSIS
+- ETL: T-SQL Stored Procedures
 
 ## Key Features
 - Fact tables: ...
