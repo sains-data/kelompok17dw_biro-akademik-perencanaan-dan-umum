@@ -22,7 +22,7 @@ Description of the business unit
   - `Fact_Anggaran`
   - `Fact_Kinerja`
 - Dimension tables:
-  -`Dim_Unit`
+  - `Dim_Unit`
   - `Dim_Program`
   - `Dim_Kegiatan`
   - `Dim_SumberDana`
@@ -33,6 +33,8 @@ Description of the business unit
 ## Documentation
 - [Business Requirements](docs/01-requirements/)
 - [Design Documents](docs/02-design/)
+- [ETL](docs/ETL/)
+- [Performance Report](docs/performance-report/)
 
 ## Timeline
 - Misi 1: 17 November 2025
