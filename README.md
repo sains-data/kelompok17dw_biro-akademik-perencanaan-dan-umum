@@ -67,4 +67,4 @@ Keberhasilan implementasi sistem diukur melalui tiga indikator utama yang mencer
 ## Timeline
 - Misi 1: 17 November 2025
 - Misi 2: 24 November 2025
-- Misi 3: [1 Desember 2025]
+- Misi 3: 1 Desember 2025
