@@ -10,10 +10,12 @@ Secara keseluruhan, strategi optimasi yang diterapkan telah memberikan hasil yan
 
 ---
 
-## **Performance Test Report**
+# **Performance Test Report**
 
-| Query Type | Deskripsi Query | Target Waktu | Waktu Aktual (Elapsed Time) | Status |
-| :--- | :--- | :--- | :--- | :--- |
-| Test 1: Simple Aggregation | Total Pagu & Realisasi per Program | < 1 detik | 44 ms (0.044 detik) | **PASS** |
-| Test 2: Trend Analysis | Tren Realisasi Bulanan (Time Series) | < 2 detik | 8 ms (0.008 detik) | **PASS** |
-| Test 3: Drill-down Analysis | Detail Kegiatan per Unit & Sumber Dana | < 2 detik | 9 ms (0.009 detik) | **PASS** |
+# **Performance Test Report**
+
+| Query Type               | Deskripsi Query                               | Target Waktu | Elapsed Time        | Status |
+|--------------------------|------------------------------------------------|--------------|----------------------|--------|
+| Test 1: Simple Aggregation | Total Pagu & Realisasi per Program           | < 1 detik    | 44 ms (0.044 detik) | **PASS** |
+| Test 2: Trend Analysis     | Tren Realisasi Bulanan (Time Series)         | < 2 detik    | 8 ms (0.008 detik)  | **PASS** |
+| Test 3: Drill-down Analysis| Detail Kegiatan per Unit & Sumber Dana       | < 2 detik    | 9 ms (0.009 detik)  | **PASS** |
