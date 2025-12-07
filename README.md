@@ -58,50 +58,144 @@ Keberhasilan implementasi sistem diukur melalui tiga indikator utama yang mencer
 * `Dim_Indikator`: Menyimpan metadata indikator kinerja (IKU/IK), termasuk nama indikator dan satuan pengukurannya.
 * `Dim_Waktu`: Dimensi kalender yang mendukung analisis *time-series* (Tahun, Semester, Triwulan, Bulan).
 
-## Repository Structure
+## 📂 Repository Structure
 
-Berikut adalah struktur direktori dan file dalam repositori ini. Klik pada nama file untuk melihat isinya.
+Berikut adalah struktur direktori dan file dalam repositori ini:
 
-- [README.md](README.md)
-- **dashboard**
-  - [Dashboard Kelompok 17 Pergudangan Data.pbix](dashboard/Dashboard%20Kelompok%2017%20Pergudangan%20Data.pbix)
-- **docs**
-  - **01-requirements**
-    - [business-requirements.md](docs/01-requirements/business-requirements.md)
-    - [data-sources.md](docs/01-requirements/data-sources.md)
-  - **02-design**
-    - [DDM - Kelompok 17.png](docs/02-design/DDM%20-%20Kelompok%2017.png)
-    - [ERD - Kelompok 17.png](docs/02-design/ERD%20-%20Kelompok%2017.png)
-    - [ETL Design_Kel7.png](docs/02-design/ETL%20Design_Kel7.png)
-    - [data-dictionary.xlsx](docs/02-design/data-dictionary.xlsx)
-  - **03-implementation**
-    - [performance-report.md](docs/03-implementation/performance-report.md)
-- **etl**
-  - [ETL-architecture.md](etl/ETL-architecture.md)
-  - [ETL_Execution_Log.txt](etl/ETL_Execution_Log.txt)
-  - [Mapping_Final.csv](etl/Mapping_Final.csv)
-- **presentations**
-  - [Presentations Slides.pdf](presentations/Presentations%20Slides.pdf)
-- **sql**
-  - [01_Create_Database.sql](sql/01_Create_Database.sql)
-  - [02_Create_Dimensions.sql](sql/02_Create_Dimensions.sql)
-  - [03_Create_Facts.sql](sql/03_Create_Facts.sql)
-  - [04_Create_Indexes.sql](sql/04_Create_Indexes.sql)
-  - [05_Create_Partitions.sql](sql/05_Create_Partitions.sql)
-  - [06_Create_Staging.sql](sql/06_Create_Staging.sql)
-  - [07_ETL_Procedures.sql](sql/07_ETL_Procedures.sql)
-  - [08_Data_Quality_Checks.sql](sql/08_Data_Quality_Checks.sql)
-  - [09_Test_Queries.sql](sql/09_Test_Queries.sql)
-  - [10_Create_Job.sql](sql/10_Create_Job.sql)
-  - [11_Create_Analytical_Views.sql](sql/11_Create_Analytical_Views.sql)
-  - [12_Security.sql](sql/12_Security.sql)
-  - [13_Backup.sql](sql/13_Backup.sql)
-- **tests**
-  - [08_Data_Quality_Checks.sql](tests/08_Data_Quality_Checks.sql)
-  - [09_Test_Queries.sql](tests/09_Test_Queries.sql)
-  - [testing.md](tests/testing.md)
+```text
+README.md
+dashboard/
+  └── Dashboard Kelompok 17 Pergudangan Data.pbix
+docs/
+  ├── 01-requirements/
+  │     ├── business-requirements.md
+  │     └── data-sources.md
+  ├── 02-design/
+  │     ├── DDM - Kelompok 17.png
+  │     ├── ERD - Kelompok 17.png
+  │     ├── ETL Design_Kel7.png
+  │     └── data-dictionary.xlsx
+  └── 03-implementation/
+        └── performance-report.md
+etl/
+  ├── ETL-architecture.md
+  ├── ETL_Execution_Log.txt
+  └── Mapping_Final.csv
+presentations/
+  └── Presentations Slides.pdf
+sql/
+  ├── 01_Create_Database.sql
+  ├── 02_Create_Dimensions.sql
+  ├── 03_Create_Facts.sql
+  ├── 04_Create_Indexes.sql
+  ├── 05_Create_Partitions.sql
+  ├── 06_Create_Staging.sql
+  ├── 07_ETL_Procedures.sql
+  ├── 10_Create_Job.sql
+  ├── 11_Create_Analytical_Views.sql
+  ├── 12_Security.sql
+  └── 13_Backup.sql
+tests/
+  ├── 08_Data_Quality_Checks.sql
+  ├── 09_Test_Queries.sql
+  └── testing.md
+```
 
-## Timeline
-- Misi 1: 17 November 2025
-- Misi 2: 24 November 2025
-- Misi 3: 1 Desember 2025
+## 🚀 Getting Started
+
+### Prerequisites
+Pastikan perangkat Anda memenuhi persyaratan berikut:
+- **Database Engine**: Microsoft SQL Server 2019 atau 2022.
+- **Tools**: SQL Server Management Studio (SSMS).
+- **Visualization**: Microsoft Power BI Desktop.
+- **Environment**: Windows (Localhost Deployment).
+
+### Installation
+
+1. **Clone repository**  
+   Unduh source code ke komputer lokal Anda:
+
+   ```bash
+   git clone https://github.com/sains-data/kelompok17dw_biro-akademik-perencanaan-dan-umum.git
+   ```
+
+2. **Execute SQL scripts in order**  
+   Buka SSMS, hubungkan ke Localhost, dan jalankan script di folder `sql/` secara berurutan mulai dari `01` sampai `13`.
+
+   *Contoh via Command Line (sqlcmd):*
+   ```bash
+   sqlcmd -S localhost -i sql/01_Create_Database.sql
+   sqlcmd -S localhost -d DM_BiroPerencanaan_DW -i sql/02_Create_Dimensions.sql
+   # ... lanjutkan sesuai urutan file
+   ```
+
+3. **Run ETL Process**  
+   Jalankan Stored Procedure utama untuk memuat data dari CSV ke Data Mart:
+
+   ```sql
+   USE DM_BiroPerencanaan_DW;
+   EXEC dbo.usp_Master_ETL;
+   ```
+
+   *Pastikan pesan "ETL Completed Successfully" muncul pada tab Messages.*
+
+4. **Open Power BI Dashboard**
+   - Buka folder `dashboard/`.
+   - Klik ganda file **`Dashboard Kelompok 17 Pergudangan Data.pbix`**.
+   - Tekan tombol **Refresh** pada menu Home untuk menarik data terbaru.
+
+## 📊 Dashboards Features
+
+- **Executive Dashboard (Keuangan)**: High-level KPIs terkait Pagu Anggaran, Realisasi Belanja, Sisa Anggaran, dan Tren Penyerapan Bulanan.
+- **Operational Dashboard (Kinerja)**: Analisis detail mengenai Skor Kinerja Unit, Status Ketercapaian Indikator (Tercapai/Belum), dan Matriks Detail Kegiatan.
+- **Custom Reports**: Fitur interaktif (Drill-down & Slicer) untuk analisis ad-hoc per unit kerja.
+
+## 📚 Documentation
+
+Dokumentasi teknis dan fungsional proyek:
+
+- [Business Requirements](docs/01-requirements/business-requirements.md)
+- [Data Sources](docs/01-requirements/data-sources.md)  
+- [Data Dictionary](docs/02-design/data-dictionary.xlsx)  
+- [ETL Architecture](etl/ETL-architecture.md)  
+- [Performance Report](docs/03-implementation/performance-report.md)  
+
+## 🧪 Testing Results
+
+Ringkasan hasil pengujian:
+
+| Kategori Test | Hasil Pengujian | Status |
+| :--- | :--- | :--- |
+| **Data Quality** | **100% Valid (Pass)** pada uji kelengkapan (NULL check) dan konsistensi referensi (FK check). |  **PASS** |
+| **Performance** | Waktu eksekusi query agregasi rata-rata **< 0.05 detik**. |  **PASS** |
+| **UAT** | Seluruh fitur fungsional dashboard berjalan lancar sesuai skenario pengujian user. |  **PASS** |
+
+## 📅 Project Timeline
+
+- **Misi 1** (Perancangan): Completed [17 November 2025]  
+- **Misi 2** (Implementasi ETL): Completed [24 November 2025]  
+- **Misi 3** (Visualisasi & Finalisasi): Completed [01 Desember 2025]  
+
+## 🔒 Security
+
+- **Role-Based Access Control (RBAC)**: Implementasi peran `db_executive` (Full Access), `db_analyst` (Staging), dan `db_viewer` (Read-Only).
+- **Audit Trail**: Perekaman otomatis setiap perubahan data (Insert/Update/Delete) pada tabel fakta menggunakan **Database Triggers**.
+
+## 📄 License
+
+Proyek ini dikembangkan sebagai bagian dari tugas akademik mata kuliah Pergudangan Data di **Institut Teknologi Sumatera**.
+
+## 👏 Acknowledgments
+
+- **Program Studi Sains Data**, Fakultas Sains, ITERA.  
+- **Dosen Pengampu Mata Kuliah** Pergudangan Data  
+
+## 📞 Issues & Contact
+
+- 🐛 **Report Issues** – Laporkan bug atau request fitur melalui GitHub Issues.
+- ✉️ **Email Tim**  
+  - Lidia Natasyah Marpaung — lidia.123450015@students.itera.ac.id  
+  - Wulan Lumbantoruan — wulan.123450027@students.itera.ac.id  
+  - Aisyah Musfirah — aisyah.123450084@students.itera.ac.id
+- 💬 **Diskusi**: Gunakan GitHub Discussions untuk tanya jawab dan saran.
+
