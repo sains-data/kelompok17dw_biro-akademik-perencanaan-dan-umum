@@ -1,7 +1,0 @@
->>> Starting ETL Process for Biro Perencanaan...
-Dimensions Loaded Successfully
-Fact Anggaran Loaded Successfully
-Fact Kinerja Loaded Successfully
->>> ETL Completed Successfully <<<
-
-Completion time: 2025-11-24T13:48:06.1258474+07:00
