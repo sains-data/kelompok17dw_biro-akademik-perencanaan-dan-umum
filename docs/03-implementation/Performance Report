@@ -1,4 +1,4 @@
-# Performance Report
+# **Performance Report**
 
 Hasil analisis terhadap execution plan untuk Query 1 (Simple Aggregation), Query 2 (Trend Analysis), dan Query 3 (Drill-down Analysis) menunjukkan bahwa seluruh query berjalan sesuai desain Star Schema. SQL Server memulai proses dari tabel dimensi berukuran kecil sebelum melakukan join ke tabel fakta, dan sebagian besar biaya eksekusi berasal dari operasi sorting serta agregasi, yang merupakan karakteristik normal pada query pelaporan.
 
@@ -10,7 +10,7 @@ Secara keseluruhan, strategi optimasi yang diterapkan telah memberikan hasil yan
 
 ---
 
-## Performance Test Report
+## **Performance Test Report**
 
 | Query Type | Deskripsi Query | Target Waktu | Waktu Aktual (Elapsed Time) | Status |
 | :--- | :--- | :--- | :--- | :--- |
