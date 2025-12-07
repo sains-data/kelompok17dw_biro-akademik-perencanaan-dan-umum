@@ -15,7 +15,15 @@ Sistem ini diharapkan menjadi fondasi analitik institusi dengan meningkatkan aku
 
 # **Business Requirements**
 
-Untuk meningkatkan tata kelola perencanaan dan anggaran, sistem Data Warehouse dirancang untuk memenuhi kebutuhan integrasi data **RKAT/RBA** pada seluruh unit kerja. Integrasi ini membutuhkan kelengkapan dan konsistensi data yang tinggi. Karena itu, kinerja integrasi diukur melalui KPI seperti:
+Biro Akademik, Perencanaan, dan Umum (Biro Perencanaan) di ITERA saat ini menghadapi tantangan signifikan dalam pengelolaan data perencanaan dan anggaran yang masih terfragmentasi. Data perencanaan (RKAT/RBA) dan data realisasi keuangan tersimpan dalam format file CSV yang terpisah, sehingga menyulitkan proses rekonsiliasi dan pemantauan kinerja secara holistik. 
+
+Kebutuhan bisnis utama yang mendasari pengembangan Data Warehouse ini adalah urgensi untuk mengintegrasikan seluruh data tersebut menjadi satu sumber kebenaran tunggal (Single Source of Truth). Integrasi ini krusial untuk menghilangkan inkonsistensi data antar unit kerja dan mempercepat proses pelaporan yang selama ini dilakukan secara manual. 
+
+Selain integrasi, manajemen membutuhkan alat bantu visual untuk memantau efektivitas penggunaan anggaran secara real-time. Sistem dituntut untuk mampu menyandingkan data rencana anggaran (Pagu) dengan realisasi belanja aktual guna menghitung persentase serapan anggaran. Informasi ini diperlukan untuk mendeteksi dini adanya underspending (penyerapan rendah) atau over-spending pada setiap unit kerja sebelum periode tahun anggaran berakhir. 
+
+Kebutuhan bisnis selanjutnya berfokus pada evaluasi kinerja operasional. Selain aspek keuangan, Biro Perencanaan perlu mengukur produktivitas unit melalui indikator kinerja (IKU/IK). Sistem harus mampu memetakan capaian volume keluaran (output) dari setiap kegiatan unit kerja, sehingga pimpinan dapat menilai apakah anggaran yang diserap sejalan dengan hasil kinerja yang dicapai.
+
+Untuk meningkatkan tata kelola perencanaan dan anggaran, sistem Data Warehouse dirancang untuk memenuhi kebutuhan integrasi Untuk memenuhi kebutuhan Integrasi data **RKAT/RBA** pada seluruh unit kerja ini membutuhkan kelengkapan dan konsistensi data yang tinggi. Karena itu, kinerja integrasi diukur melalui KPI seperti:
 
 * **Persentase kelengkapan data anggaran**
 * **Tingkat konsistensi data antarsumber**
