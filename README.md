@@ -176,7 +176,7 @@ Ringkasan hasil pengujian:
 - **Misi 2** (Implementasi ETL): Completed [24 November 2025]  
 - **Misi 3** (Visualisasi & Finalisasi): Completed [01 Desember 2025]  
 - **Revisi** (Laporan Final): Completed [07 Desember 2025]
-- 
+  
 ## 🔒 Security
 
 - **Role-Based Access Control (RBAC)**: Implementasi peran `db_executive` (Full Access), `db_analyst` (Staging), dan `db_viewer` (Read-Only).
