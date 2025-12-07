@@ -1,20 +1,7 @@
 USE DM_BiroPerencanaan_DW;
 GO
-CREATE OR ALTER PROCEDURE dbo.usp_Load_Dim_Waktu
-AS
-BEGIN
-    SET NOCOUNT ON;
 
-    PRINT '>>> Dim Waktu belum diimplementasi. Skip sementara.';
-END;
-GO
-
-EXEC dbo.usp_Master_ETL;
-
--- =============================================
--- STORED PROCEDURE: LOAD DIMENSIONS
--- (Gabungan Unit, Program, Kegiatan, dll)
--- =============================================
+-- LOAD DIMENSIONS
 CREATE OR ALTER PROCEDURE dbo.usp_Load_Dimensions
 AS
 BEGIN
@@ -68,9 +55,7 @@ BEGIN
 END;
 GO
 
--- =============================================
--- STORED PROCEDURE: LOAD FACT ANGGARAN
--- =============================================
+-- LOAD FACT ANGGARAN
 CREATE OR ALTER PROCEDURE dbo.usp_Load_Fact_Anggaran
 AS
 BEGIN
@@ -138,9 +123,7 @@ BEGIN
 END;
 GO
 
--- =============================================
--- STORED PROCEDURE: LOAD FACT KINERJA
--- =============================================
+-- LOAD FACT KINERJA
 CREATE OR ALTER PROCEDURE dbo.usp_Load_Fact_Kinerja
 AS
 BEGIN
@@ -163,9 +146,7 @@ BEGIN
 END;
 GO
 
--- =============================================
 -- MASTER ETL PROCEDURE
--- =============================================
 CREATE OR ALTER PROCEDURE dbo.usp_Master_ETL
 AS
 BEGIN
