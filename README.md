@@ -58,11 +58,48 @@ Keberhasilan implementasi sistem diukur melalui tiga indikator utama yang mencer
 * `Dim_Indikator`: Menyimpan metadata indikator kinerja (IKU/IK), termasuk nama indikator dan satuan pengukurannya.
 * `Dim_Waktu`: Dimensi kalender yang mendukung analisis *time-series* (Tahun, Semester, Triwulan, Bulan).
 
-## Documentation
-- [Business Requirements](docs/01-requirements/)
-- [Design Documents](docs/02-design/)
-- [ETL](docs/ETL/)
-- [Performance Report](docs/performance-report/)
+## Repository Structure
+
+Berikut adalah struktur direktori dan file dalam repositori ini. Klik pada nama file untuk melihat isinya.
+
+- [README.md](README.md)
+- **dashboard**
+  - [Dashboard Kelompok 17 Pergudangan Data.pbix](dashboard/Dashboard%20Kelompok%2017%20Pergudangan%20Data.pbix)
+- **docs**
+  - **01-requirements**
+    - [business-requirements.md](docs/01-requirements/business-requirements.md)
+    - [data-sources.md](docs/01-requirements/data-sources.md)
+  - **02-design**
+    - [DDM - Kelompok 17.png](docs/02-design/DDM%20-%20Kelompok%2017.png)
+    - [ERD - Kelompok 17.png](docs/02-design/ERD%20-%20Kelompok%2017.png)
+    - [ETL Design_Kel7.png](docs/02-design/ETL%20Design_Kel7.png)
+    - [data-dictionary.xlsx](docs/02-design/data-dictionary.xlsx)
+  - **03-implementation**
+    - [performance-report.md](docs/03-implementation/performance-report.md)
+- **etl**
+  - [ETL-architecture.md](etl/ETL-architecture.md)
+  - [ETL_Execution_Log.txt](etl/ETL_Execution_Log.txt)
+  - [Mapping_Final.csv](etl/Mapping_Final.csv)
+- **presentations**
+  - [Presentations Slides.pdf](presentations/Presentations%20Slides.pdf)
+- **sql**
+  - [01_Create_Database.sql](sql/01_Create_Database.sql)
+  - [02_Create_Dimensions.sql](sql/02_Create_Dimensions.sql)
+  - [03_Create_Facts.sql](sql/03_Create_Facts.sql)
+  - [04_Create_Indexes.sql](sql/04_Create_Indexes.sql)
+  - [05_Create_Partitions.sql](sql/05_Create_Partitions.sql)
+  - [06_Create_Staging.sql](sql/06_Create_Staging.sql)
+  - [07_ETL_Procedures.sql](sql/07_ETL_Procedures.sql)
+  - [08_Data_Quality_Checks.sql](sql/08_Data_Quality_Checks.sql)
+  - [09_Test_Queries.sql](sql/09_Test_Queries.sql)
+  - [10_Create_Job.sql](sql/10_Create_Job.sql)
+  - [11_Create_Analytical_Views.sql](sql/11_Create_Analytical_Views.sql)
+  - [12_Security.sql](sql/12_Security.sql)
+  - [13_Backup.sql](sql/13_Backup.sql)
+- **tests**
+  - [08_Data_Quality_Checks.sql](tests/08_Data_Quality_Checks.sql)
+  - [09_Test_Queries.sql](tests/09_Test_Queries.sql)
+  - [testing.md](tests/testing.md)
 
 ## Timeline
 - Misi 1: 17 November 2025
