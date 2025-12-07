@@ -73,11 +73,11 @@ docs/
   ├── 02-design/
   │     ├── DDM - Kelompok 17.png
   │     ├── ERD - Kelompok 17.png
-  │     ├── ETL Design_Kel7.png
   │     └── data-dictionary.xlsx
   └── 03-implementation/
         └── performance-report.md
 etl/
+  ├── ETL Design_Kel7.png
   ├── ETL-architecture.md
   ├── ETL_Execution_Log.txt
   └── Mapping_Final.csv
