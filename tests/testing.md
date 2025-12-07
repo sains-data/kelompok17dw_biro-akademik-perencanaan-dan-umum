@@ -1,0 +1,43 @@
+## Data Quality Results
+
+Jaminan kualitas data (*Data Quality Assurance*) dilaksanakan untuk memitigasi risiko kesalahan analisis yang disebabkan oleh data yang tidak akurat atau tidak konsisten. Mekanisme pengecekan otomatis diterapkan menggunakan skrip validasi yang mengevaluasi lima dimensi kualitas data utama: **Completeness, Consistency, Accuracy, Uniqueness,** dan **Reconciliation**.
+
+Berdasarkan hasil eksekusi *Audit Log*, seluruh indikator pengujian menunjukkan hasil **PASS** (Memuaskan). Tidak ditemukan adanya pelanggaran aturan bisnis, nilai NULL pada kolom wajib, atau integritas referensi yang terputus.
+
+| ID Cek | Dimensi Kualitas | Objek Data | Deskripsi Pengujian | Hasil (Metric Value) | Status |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **DQ-01** | Completeness | Dim_Unit | Memastikan tidak ada kolom wajib (Nama Unit/Fakultas) yang bernilai NULL. | **0 (Nol)** | **PASS** |
+| **DQ-02** | Consistency | Fact_Anggaran | Memastikan integritas referensi: tidak ada data transaksi dengan ID Unit yang tidak dikenal (-1). | **0 (Nol)** | **PASS** |
+| **DQ-03** | Accuracy | Fact_Anggaran | Memastikan validitas nilai keuangan (Pagu dan Realisasi) tidak bernilai negatif (< 0). | **0 (Nol)** | **PASS** |
+| **DQ-04** | Uniqueness | Dim_Unit | Memastikan tidak ada duplikasi data master unit kerja. | **0 (Nol)** | **PASS** |
+| **DQ-05** | Reconciliation | All Tables | Membandingkan jumlah baris data antara sumber (Staging) dan tujuan (Fact) untuk memastikan tidak ada data hilang. | **Selisih 0** | **PASS** |
+
+---
+
+## Performance Testing
+
+Pengujian performa difokuskan pada pengukuran latensi atau waktu respon kueri saat memproses data dalam jumlah besar. Pengujian dilakukan dengan membandingkan waktu eksekusi (*Elapsed Time*) aktual terhadap target standar performa (di bawah 3 detik).
+
+Hasil pengujian menunjukkan bahwa seluruh skenario berhasil dieksekusi dengan waktu respon di bawah **50 milidetik**, jauh melampaui target performa berkat penerapan strategi *Partitioning* dan *Columnstore Index*.
+
+| Query Type | Deskripsi Query | Target Waktu | Waktu Aktual | Status |
+| :--- | :--- | :--- | :--- | :--- |
+| **Test 1: Simple Aggregation** | Total Pagu & Realisasi per Program | < 1 detik | **44 ms** (0.044 detik) | **PASS** |
+| **Test 2: Trend Analysis** | Tren Realisasi Bulanan (*Time Series*) | < 2 detik | **8 ms** (0.008 detik) | **PASS** |
+| **Test 3: Drill-down Analysis** | Detail Kegiatan per Unit & Sumber Dana | < 2 detik | **9 ms** (0.009 detik) | **PASS** |
+
+---
+
+## User Acceptance Testing (UAT)
+
+Pengujian Penerimaan Pengguna (*User Acceptance Testing*) dilakukan untuk memvalidasi kesesuaian fungsionalitas sistem secara menyeluruh dengan kebutuhan operasional pengguna akhir. Berikut adalah log hasil pengujian UAT di mana seluruh skenario utama berhasil dijalankan.
+
+| ID Test | Skenario Pengujian | Ekspektasi | Hasil Aktual | Status |
+| :--- | :--- | :--- | :--- | :--- |
+| **TC-01** | Menjalankan ETL Harian | Data dari CSV masuk ke Database tanpa error. | Data masuk sukses (Lihat Log). | **PASS** |
+| **TC-02** | Cek Kualitas Data | Tidak ada data Unit yang NULL atau Anggaran Minus. | Data Quality Dashboard: All PASS. | **PASS** |
+| **TC-03** | Akses Dashboard Anggaran | Grafik Pagu vs Realisasi muncul sesuai Tahun. | Grafik muncul & interaktif. | **PASS** |
+| **TC-04** | Akses Dashboard Kinerja | Grafik Capaian vs Target muncul. | Grafik muncul & interaktif. | **PASS** |
+| **TC-05** | Filter Tahun (Slicer) | Data berubah saat tahun diganti. | Data terfilter dengan benar. | **PASS** |
+| **TC-06** | Cek Security (Audit) | Perubahan data tercatat di Log. | Insert data tercatat di Security_Audit_Log. | **PASS** |
+| **TC-07** | Backup Recovery | File .bak terbentuk di folder Backup. | File backup ada di C:\Backup. | **PASS** |
