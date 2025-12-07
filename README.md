@@ -45,17 +45,18 @@ Keberhasilan implementasi sistem diukur melalui tiga indikator utama yang mencer
 * **Version Control:** GitHub.
 
 ### Data Model (Star Schema)
-**Fact Tables:**
-  - `Fact_Anggaran`
-  - `Fact_Kinerja`
-    
-**Dimension Tables:**
-  - `Dim_Unit`
-  - `Dim_Program`
-  - `Dim_Kegiatan`
-  - `Dim_SumberDana`
-  - `Dim_Indikator`
-  - `Dim_Waktu`
+
+![Star Schema Diagram](docs/02-design/star-schema.png) **Fact Tables (Tabel Fakta):**
+* `Fact_Anggaran_Partitioned`: Tabel fakta utama yang menyimpan data transaksi keuangan (Pagu dan Realisasi Belanja). Tabel ini memiliki granularitas per kegiatan dan menggunakan strategi **Partisi Tahunan** untuk optimasi performa kueri.
+* `Fact_Kinerja`: Tabel fakta yang menyimpan data evaluasi operasional, mencakup Target dan Nilai Capaian (Output) dari setiap indikator kinerja unit.
+
+**Dimension Tables (Tabel Dimensi):**
+* `Dim_Unit`: Menyimpan informasi hierarki struktur organisasi (Biro, Fakultas, Lembaga, UPT) untuk analisis performa per unit kerja.
+* `Dim_Program`: Berisi daftar program kerja strategis yang mengacu pada Rencana Strategis (Renstra) institusi.
+* `Dim_Kegiatan`: Menyimpan rincian aktivitas operasional yang merupakan turunan dari program kerja.
+* `Dim_SumberDana`: Mengklasifikasikan jenis asal dana (misal: Rupiah Murni, PNBP, BOPTN, Hibah).
+* `Dim_Indikator`: Menyimpan metadata indikator kinerja (IKU/IK), termasuk nama indikator dan satuan pengukurannya.
+* `Dim_Waktu`: Dimensi kalender yang mendukung analisis *time-series* (Tahun, Semester, Triwulan, Bulan).
 
 ## Documentation
 - [Business Requirements](docs/01-requirements/)
