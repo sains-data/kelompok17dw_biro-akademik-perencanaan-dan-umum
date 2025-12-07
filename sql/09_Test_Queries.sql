@@ -1,62 +1,54 @@
 USE DM_BiroPerencanaan_DW;
 GO
 
--------------------------------------------------------
--- 1. CEK JUMLAH RECORD DI FACT
--------------------------------------------------------
-PRINT '--- FACT CHECK ---';
-SELECT COUNT(*) AS TotalFactRows 
-FROM dbo.Fact_Anggaran_Partitioned;
+SET STATISTICS TIME ON;
+SET STATISTICS IO ON;
+GO
 
-SELECT TOP 10 * 
-FROM dbo.Fact_Anggaran_Partitioned;
+-- Simple Aggregation (Total Anggaran per Program)
+SELECT 
+    p.nama_program,
+    COUNT(DISTINCT f.unit_id) AS JumlahUnit,
+    SUM(f.pagu) AS TotalPagu,
+    SUM(f.realisasi) AS TotalRealisasi,
+    AVG(f.persentase_serapan) AS RataRataSerapan
+FROM dbo.Fact_Anggaran_Partitioned f
+INNER JOIN dbo.Dim_Program p ON f.program_id = p.program_id
+INNER JOIN dbo.Dim_Waktu w ON f.waktu_key = w.waktu_key
+WHERE w.tahun = 2024 -- Filter Tahun Tertentu
+GROUP BY p.nama_program
+ORDER BY TotalPagu DESC;
+GO
 
--------------------------------------------------------
--- 2. CEK DIMENSI, TERUTAMA DIM_WAKTU
--------------------------------------------------------
-PRINT '--- DIMENSI CHECK ---';
-SELECT 'Dim_Unit' AS Dimensi, COUNT(*) AS RowsCount FROM dbo.Dim_Unit
-UNION ALL
-SELECT 'Dim_Program', COUNT(*) FROM dbo.Dim_Program
-UNION ALL
-SELECT 'Dim_Kegiatan', COUNT(*) FROM dbo.Dim_Kegiatan
-UNION ALL
-SELECT 'Dim_SumberDana', COUNT(*) FROM dbo.Dim_SumberDana
-UNION ALL
-SELECT 'Dim_Indikator', COUNT(*) FROM dbo.Dim_Indikator
-UNION ALL
-SELECT 'Dim_Waktu', COUNT(*) FROM dbo.Dim_Waktu;
+-- Trend Analysis (Tren Realisasi Bulanan)
+SELECT 
+    w.tahun,
+    w.bulan,
+    COUNT(f.fact_anggaran_id) AS JumlahTransaksi,
+    SUM(f.realisasi) AS TotalRealisasi
+FROM dbo.Fact_Anggaran_Partitioned f
+INNER JOIN dbo.Dim_Waktu w ON f.waktu_key = w.waktu_key
+GROUP BY w.tahun, w.bulan
+ORDER BY w.tahun, w.bulan;
+GO
 
--------------------------------------------------------
--- 3. LIHAT TAHUN APA SAJA DI DIM_WAKTU
--------------------------------------------------------
-PRINT '--- TAHUN DI DIM_WAKTU ---';
-SELECT DISTINCT tahun 
-FROM dbo.Dim_Waktu
-ORDER BY tahun;
+-- Drill-down Analysis
+DECLARE @SampleUnitID INT = (SELECT TOP 1 unit_id FROM dbo.Dim_Unit);
 
--------------------------------------------------------
--- 4. CEK STAGING TABLES (HARUS ADA ISINYA)
--------------------------------------------------------
-PRINT '--- CEK STAGING TABLES ---';
-SELECT 'stg.Unit', COUNT(*) FROM stg.Unit
-UNION ALL
-SELECT 'stg.Program', COUNT(*) FROM stg.Program
-UNION ALL
-SELECT 'stg.Kegiatan', COUNT(*) FROM stg.Kegiatan
-UNION ALL
-SELECT 'stg.Anggaran_RKAT', COUNT(*) FROM stg.Anggaran_RKAT
-UNION ALL
-SELECT 'stg.Realisasi', COUNT(*) FROM stg.Realisasi
-UNION ALL
-SELECT 'stg.Capaian', COUNT(*) FROM stg.Capaian;
+SELECT 
+    u.nama_unit,
+    k.nama_kegiatan,
+    s.sumber_dana,
+    SUM(f.pagu) AS Pagu,
+    SUM(f.realisasi) AS Realisasi
+FROM dbo.Fact_Anggaran_Partitioned f
+INNER JOIN dbo.Dim_Unit u ON f.unit_id = u.unit_id
+INNER JOIN dbo.Dim_Kegiatan k ON f.kegiatan_id = k.kegiatan_id
+INNER JOIN dbo.Dim_SumberDana s ON f.sumber_dana_key = s.sumber_dana_key
+WHERE f.unit_id = @SampleUnitID
+GROUP BY u.nama_unit, k.nama_kegiatan, s.sumber_dana;
+GO
 
--------------------------------------------------------
--- 5. CEK SAMPEL DATA KALAU DIPERLUKAN
--------------------------------------------------------
-PRINT '--- TOP ROWS STAGING ---';
-SELECT TOP 5 * FROM stg.Anggaran_RKAT;
-SELECT TOP 5 * FROM stg.Realisasi;
-SELECT TOP 5 * FROM stg.Unit;
-SELECT TOP 5 * FROM stg.Kegiatan;
-SELECT TOP 5 * FROM stg.Program;
+SET STATISTICS TIME OFF;
+SET STATISTICS IO OFF;
+GO
