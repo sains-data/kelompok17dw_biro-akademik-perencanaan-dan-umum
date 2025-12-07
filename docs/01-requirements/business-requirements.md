@@ -40,7 +40,7 @@ Selain integrasi, sistem juga menyediakan **pemantauan kinerja anggaran** melalu
 * Deviasi antara rencana dan realisasi
 * Banyaknya revisi anggaran
 
-#**Functional Requirement**
+# **Functional Requirement**
 
 Untuk menjawab kebutuhan bisnis tersebut, sistem Data Warehouse ini dibangun dengan spesifikasi fungsional yang berfokus pada otomatisasi dan validasi data. Pada sisi pengolahan data (back-end), sistem memiliki fungsi ETL (Extract, Transform, Load) yang mampu membaca tujuh file sumber berformat CSV dan melakukan pembersihan data secara otomatis. Fungsi ini mencakup validasi format tahun untuk mencegah masuknya data sampah (seperti teks non-numerik pada kolom tahun) serta penanganan data referensi yang tidak lengkap menggunakan mekanisme default value. 
 
