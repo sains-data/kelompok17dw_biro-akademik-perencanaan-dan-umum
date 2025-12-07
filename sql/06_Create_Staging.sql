@@ -7,11 +7,8 @@ BEGIN
 END
 GO
 
--- ====================================================
 -- CREATE STAGING TABLES 
--- ====================================================
-
--- 2.1 Staging Unit (Source: units.csv)
+-- Staging Unit (Source: units.csv)
 CREATE TABLE stg.Unit (
     unit_pk VARCHAR(50),
     unit_id VARCHAR(50),
@@ -22,7 +19,7 @@ CREATE TABLE stg.Unit (
 );
 GO
 
--- 2.2 Staging Program (Source: programs.csv)
+-- Staging Program (Source: programs.csv)
 CREATE TABLE stg.Program (
     program_pk VARCHAR(50),
     program_id VARCHAR(50),
@@ -34,7 +31,7 @@ CREATE TABLE stg.Program (
 );
 GO
 
--- 2.3 Staging Kegiatan (Source: kegiatan.csv)
+-- Staging Kegiatan (Source: kegiatan.csv)
 CREATE TABLE stg.Kegiatan (
     kegiatan_pk VARCHAR(50),
     program_pk VARCHAR(50),
@@ -45,7 +42,7 @@ CREATE TABLE stg.Kegiatan (
 );
 GO
 
--- 2.4 Staging Anggaran RKAT (Source: anggaran_rkat.csv)
+-- Staging Anggaran RKAT (Source: anggaran_rkat.csv)
 CREATE TABLE stg.Anggaran_RKAT (
     anggaran_id VARCHAR(50),
     unit_pk VARCHAR(50),
@@ -60,7 +57,7 @@ CREATE TABLE stg.Anggaran_RKAT (
 );
 GO
 
--- 2.5 Staging Realisasi (Source: realisasi.csv)
+-- Staging Realisasi (Source: realisasi.csv)
 CREATE TABLE stg.Realisasi (
     realisasi_id VARCHAR(50),
     anggaran_id VARCHAR(50),
@@ -71,7 +68,7 @@ CREATE TABLE stg.Realisasi (
 );
 GO
 
--- 2.6 Staging Capaian (Source: capaian.csv)
+-- Staging Capaian (Source: capaian.csv)
 CREATE TABLE stg.Capaian (
     capaian_id VARCHAR(50),
     indikator_id VARCHAR(50),
@@ -81,7 +78,7 @@ CREATE TABLE stg.Capaian (
 );
 GO
 
--- 2.7 Staging Anggaran Flat (Source: anggaran_flat_510.csv)
+-- Staging Anggaran Flat (Source: anggaran_flat_510.csv)
 CREATE TABLE stg.Anggaran_Flat (
     id VARCHAR(50),
     unit_id VARCHAR(50),
