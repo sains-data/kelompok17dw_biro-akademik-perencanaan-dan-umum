@@ -3,8 +3,6 @@ Tugas Besar Pergudangan Data - Kelompok 17
 
 # Perancangan dan Implementasi Data Mart untuk Monitoring Anggaran dan Evaluasi Kinerja (Biro Perencanaan ITERA)
 
-![ITERA Logo](https://upload.wikimedia.org/wikipedia/commons/e/e5/Logo_itera.png)
-
 ## 📌 Executive Summary
 Proyek ini bertujuan untuk membangun solusi **Data Mart** yang terintegrasi bagi Biro Akademik, Perencanaan, dan Umum (Biro Perencanaan) Institut Teknologi Sumatera (ITERA). Sistem ini dirancang untuk mengatasi masalah fragmentasi data antara Rencana Anggaran (RKAT/RBA), Realisasi Belanja, dan Capaian Kinerja Unit. 
 
@@ -13,8 +11,8 @@ Dengan menerapkan konsep *Single Source of Truth* dan metodologi **Kimball Dimen
 ## 👥 Team Members - Kelompok 17
 Berikut adalah pembagian peran utama dalam pengembangan proyek ini:
 
-| NIM | Nama | Peran Utama | Fokus Tanggung Jawab |
-|-----|------|-------------|----------------------|
+| NIM | Nama | Peran Utama |
+|-----|------|-------------|
 | **123450084** | **Aisyah Musfirah** | **Project Leader & Business Analyst** | 
 | **123450027** | **Wulan Lumbantoruan** | **ETL Developer & Documentation** | 
 | **123450015** | **Lidia Natasyah Marpaung** | **BI Developer & QA** | 
