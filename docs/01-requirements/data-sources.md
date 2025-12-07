@@ -1,6 +1,8 @@
 # **Data Sources Overview**
 
-Berikut adalah daftar sumber data yang digunakan dalam pembangunan Data Warehouse. Seluruh dataset merupakan **data sintetis (synthetic)** yang dihasilkan secara manual untuk keperluan simulasi proses perencanaan, penganggaran, dan kinerja di lingkungan ITERA.
+Infrastruktur data dibangun di atas data sekunder yang merepresentasikan ekosistem operasional Biro Perencanaan. Sumber data terdiri dari enam file utama yang berfungsi sebagai input sistem dan satu file pendukung validasi. Data diklasifikasikan menjadi dua kategori: data master yang bersifat statis dan data transaksi yang dinamis. 
+Berikut adalah sumber data yang digunakan untuk analisis pada proyek ini:
+
 
 | **Nama Data Source**  | **Tipe**        | **Volume** | **Update Frequency**       |
 | --------------------- | --------------- | ---------- | -------------------------- |
